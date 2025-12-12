@@ -1,0 +1,8 @@
+git checkout -b fix/move-site-to-docs
+mkdir -p docs
+for f in _config.yml index.md README.md _posts _layouts _includes assets css images; do
+  if [ -e "$f" ]; then git mv "$f" docs/; fi
+done
+git add docs
+git commit -m "Move Jekyll site into docs for Pages build"
+git push -u origin fix/move-site-to-docs
